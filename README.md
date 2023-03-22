@@ -72,7 +72,7 @@ $ docker run -d --name expose-app -p 80:80 --network app-network --link my-app:m
 ```
 $ docker ps
 ```
-and the output should be looks like
+expected output as shown as this
 ```
 CONTAINER ID   IMAGE        COMMAND                  CREATED       STATUS          PORTS                    NAMES
 ef523e84817e   expose-app   "/docker-entrypoint.…"   5 hours ago   Up 10 seconds   0.0.0.0:80->80/tcp       expose-app
