@@ -1,0 +1,14 @@
+From python:3.9-slim-buster
+
+# Set the working directory to /app
+WORKDIR /app
+# Copy the requirements file into the container at /app
+COPY requirements.txt .
+# Install any needed packages specified in requirements.txt
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+# Copy the rest application code into the container at /app
+COPY . .
+
+EXPOSE 8080
+
+CMD ["python", "app.py"]

@@ -1,0 +1,6 @@
+database:
+  dbname: "dummies_db"
+  user: "operator"
+  password: "password"
+  host: "192.168.1.6"
+  port: "5432"
