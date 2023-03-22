@@ -78,3 +78,21 @@ CONTAINER ID   IMAGE        COMMAND                  CREATED       STATUS       
 ef523e84817e   expose-app   "/docker-entrypoint.…"   5 hours ago   Up 10 seconds   0.0.0.0:80->80/tcp       expose-app
 6811ae9370e6   my-app       "python app.py"          5 hours ago   Up 12 seconds   0.0.0.0:8080->8080/tcp   my-app
 ```
+
+**Create Docker Manifest**
+
+1. Make sure our docker container up and run
+2. Build the Docker images for platforms/architectures, we can run these command:
+3. Follow the steps from https://docs.docker.com/engine/reference/commandline/manifest/
+
+**Create Logs Forwarder Container**
+
+1. Double check fluentd Dockerfile and fluent.conf
+2. Build the image called fluent-app
+```
+$ docker build -t fluent-app -f Dockerfile_fluentd .
+```
+3. Create and run container based from the fluent-app image
+```
+$ docker run -d --name fluent-app -p 24224:24224 --network app-network --link my-app:my-app fluent-app
+```
